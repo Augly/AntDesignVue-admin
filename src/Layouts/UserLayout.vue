@@ -1,10 +1,12 @@
 <template>
-  <div id="app">
+  <div>
+    <div class="desc">Ant Design Vue Admin</div>
     <router-view></router-view>
   </div>
 </template>
+
 <script>
 export default {};
 </script>
 
-<style lang="less"></style>
+<style></style>
