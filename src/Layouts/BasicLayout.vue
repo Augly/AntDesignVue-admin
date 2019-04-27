@@ -1,8 +1,15 @@
 <template>
-  <div>
+  <div :class="[`nav-theme-${navTheme}`, `nav-Layout-${navLayout}`]">
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
-      <a-layout-sider collapsible v-model="collapsed" :trigger="null">
-        <SideMenu></SideMenu>
+      <a-layout-sider
+        collapsible
+        :theme="navTheme"
+        v-model="collapsed"
+        :trigger="null"
+        width="256px"
+      >
+        <div class="logo">Ant Design Vue Admin</div>
+        <SideMenu :theme="navTheme"></SideMenu>
       </a-layout-sider>
       <a-layout>
         <a-layout-header style="background: #fff; padding: 0">
@@ -36,6 +43,14 @@ export default {
       collapsed: false
     };
   },
+  computed: {
+    navTheme() {
+      return this.$route.query.navTheme || "dark";
+    },
+    navLayout() {
+      return this.$route.query.navLayout || "light";
+    }
+  },
   components: {
     Header,
     Footer,
@@ -53,5 +68,18 @@ export default {
   &:hover {
     background: #ffffff;
   }
+}
+.logo {
+  color: #000000;
+  line-height: 64px;
+
+  height: 64px;
+  text-align: center;
+  overflow: hidden;
+}
+.nav-theme-dark .logo {
+  color: #ffffff;
+  line-height: 64px;
+  text-align: center;
 }
 </style>

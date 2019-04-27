@@ -19,7 +19,9 @@ const router = new Router({
         {
           path: "/dashboard",
           name: "dashboard",
-          component: { render: h => h("router-view") },
+          component: {
+            render: h => h("router-view")
+          },
           children: [
             {
               path: "/dashboard/analysis",
@@ -58,7 +60,9 @@ const router = new Router({
   ]
 });
 router.beforeEach((to, from, next) => {
-  Nprogress.start();
+  if (to.path != from.path) {
+    Nprogress.start();
+  }
   next();
 });
 router.afterEach(() => {
