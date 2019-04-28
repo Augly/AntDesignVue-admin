@@ -72,7 +72,8 @@ export default {
 .logo {
   color: #000000;
   line-height: 64px;
-
+  font-weight: 600;
+  font-size: 20px;
   height: 64px;
   text-align: center;
   overflow: hidden;
